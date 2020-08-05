@@ -1,11 +1,14 @@
 /*      Header      */
 .top-header {
-   display: none; 
+   display: none;
+   height: 32px;
+   background: rgba(255, 255, 0, 0.418); 
 }
 
-.fixed-header {
+.sticky-header {
     display: flex;
-    position: fixed;
+    position: sticky;
+    position: -webkit-sticky;
     top: 0;
     width: 100%;
     margin-bottom: 48px;
@@ -16,11 +19,11 @@
     background: white;
 }
 
-.fixed-header .left {
+.sticky-header .left {
     display: none;
 }
 
-.fixed-header .right {
+.sticky-header .right {
     border: 1px dotted grey;
     width: 50px;
 }
@@ -100,4 +103,13 @@
 footer {
     height: 283px;
     background: rgba(0, 0, 0, 0.384);
+}
+
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .top-header{
+        display: flex;
+    }
+
 }
