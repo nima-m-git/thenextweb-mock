@@ -126,6 +126,22 @@ footer {
 @media (min-width: 768px) {
     .top-header{
         display: flex;
+        flex-direction: row;
+    }
+
+    .left {
+        display: flex;
+        flex: 1;
+        justify-self: flex-start;
+    }
+
+    .sticky-header .left {
+        display: flex;
+    }
+
+    .right {
+        display: flex;
+        justify-self: flex-end;
     }
 
     .top-articles {
@@ -198,6 +214,6 @@ footer {
     }
 
     .deals {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1frs);
     }
 }
