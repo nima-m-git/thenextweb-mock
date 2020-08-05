@@ -2,7 +2,7 @@
 .top-header {
    display: none;
    height: 32px;
-   background: rgba(255, 255, 0, 0.418); 
+   background: rgba(37, 37, 8, 0.418); 
 }
 
 .sticky-header {
@@ -31,6 +31,8 @@
 /*      Content        */
 .content {
     margin-top: 48px;
+    max-width: 1192px;
+    margin: auto;
 }
 
 .top-articles {
@@ -54,6 +56,7 @@
 
 .latest-news article {
     display: flex;
+    border: 1px dotted red;
 }
 
 .latest-news .img{
@@ -67,6 +70,11 @@
     background: rgba(128, 0, 128, 0.164);
 }
 
+.latest-funding ul {
+    display: flex;
+    flex-direction: column;
+}
+
 .latest-funding .articles {
     display: flex;
     flex-direction: column;
@@ -74,14 +82,17 @@
 
 .latest-funding article {
     height: 265px;
-    border: 1px dotted grey;
+    border: 1px dotted rgb(146, 18, 18);
+}
+
+.latest-funding .articles > :last-child {
+    display: none;
 }
 
 /* mini articles */
 .mini-articles {
     background: rgba(0, 128, 0, 0.178);
-    display: flex;
-    flex-direction: column;
+    display: grid;
 }
 
 .mini-articles article {
@@ -99,6 +110,11 @@
     border: 1px dotted red;
 }
 
+.latest-deals .header {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* footer */
 footer {
     height: 283px;
@@ -112,4 +128,76 @@ footer {
         display: flex;
     }
 
+    .top-articles {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
+        height: 371.4px;
+    }
+
+    .top-articles > * {
+        border: 1px dotted green;
+    }
+
+    .top-articles > :first-child {
+        grid-row: 1 / 3;
+    }
+
+    .latest-news .container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .latest-funding ul {
+        flex-direction: row;
+    }
+
+    .latest-funding .articles {
+        flex-direction: row;
+    }
+
+    .latest-funding article {
+        flex: 1;
+    }
+
+    .mini-articles {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(auto-fill, 683px);
+    }
+
+    .deals {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .deals li {
+        height: 280px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-articles {
+        height: 560px;
+    }
+
+    .latest-news .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .latest-funding .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .latest-funding .articles > :last-child {
+        display: flex;
+    }
+
+    .mini-articles {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .deals {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
