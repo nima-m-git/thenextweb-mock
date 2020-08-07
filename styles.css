@@ -44,19 +44,6 @@ h5 {
 /*      Header      */
 .top-header {
    display: none;
-   height: 32px;
-   background: black; 
-   color: rgba(255, 255, 255, 0.600);
-
-}
-
-.top-header ul {
-    display: flex;
-    align-items: center;
-}
-
-.top-header li{
-    margin-left: 12px;
 }
 
 .sticky-header {
@@ -72,7 +59,7 @@ h5 {
 }
 
 .sticky-header li {
-    padding: 18px 10px 0 20px;
+    padding: 0 10px 0 20px;
 }
 
 .sticky-header .left {
@@ -143,16 +130,11 @@ h5 {
     flex-direction: column;
 }
 
-.latest-news article {
-    padding: 4px;
-}
-
 .latest-news .img{
     width: 75px;
     height: 75px;
     background-size: cover;
     float: left;
-    margin-right: 10px;
 }
 
 .latest-news h2 {
@@ -385,6 +367,7 @@ footer {
     flex-direction: column;
     align-items: center;
     color: rgb(170, 170, 170);
+    margin-top: 50px;
 }
 
 footer li {
@@ -400,14 +383,30 @@ footer li {
 
 .copyright {
     padding: 33px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 /* Media Queries */
 @media (min-width: 768px) {
-    .top-header{
+    .top-header {
         display: flex;
         flex-direction: row;
+        height: 32px;
+        background: black; 
+        color: rgba(255, 255, 255, 0.600);
+        justify-content: space-between;
+    }
+
+    .top-header ul {
+        display: flex;
+        align-items: center;
+    }
+     
+    .top-header li{
+        margin-left: 12px;
     }
 
     .sticky-header {
@@ -415,29 +414,22 @@ footer li {
         text-transform: uppercase;
     }
 
-    .left {
+    .sticky-header .left {
         display: flex;
         flex: 1;
         justify-self: flex-start;
+        align-items: center;
     }
 
     .top-header .right {
         display: none;
     }
 
-    .sticky-header .left {
-        display: flex;
-    }
-
     .top-articles {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 2fr 1fr;
-        height: 371.4px;
-    }
-
-    .top-articles > * {
-        border: 1px dotted green;
+        height: 60vh;
     }
 
     .top-articles > :first-child {
@@ -447,21 +439,14 @@ footer li {
     .latest-news .container{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 25vw);
-        gap: 10px;
-    }
-
-    .latest-news article {
-        display: flex;
-        flex-direction: column;
+        gap: 20px;
     }
 
     .latest-news .img {
         background-size: 100% 100%;
         width: 100%;
-        flex: 1;
         margin-bottom: 8px;
-        min-height: 110px;
+        padding-top: calc(270 / 515 * 100%);
     }
 
     .latest-funding header {
@@ -482,11 +467,13 @@ footer li {
 
     .latest-funding .articles {
         flex-direction: row;
+        margin: 0 -10px;
     }
 
     .latest-funding article {
         flex: 1;
-        padding: 10px;
+        margin: 10px;
+        min-height: 60px;
     }
 
     .worth {
@@ -517,18 +504,30 @@ footer li {
         padding-top: calc(470 / 633 * 100%);
         width: 100%;
     }
+
+    .copyright {
+        flex-direction: row;
+    }
+
+    .copyright span {
+        margin: 5px;
+    }
 }
 
 @media (min-width: 782px) {
     .top-header .right {
         display: flex;
-        justify-self: flex-end;
+        padding-right: 20px;
     }
 }
 
 @media (min-width: 1024px) {
+    .top-header .right {
+        display: flex;
+    }
+
     .top-articles {
-        height: 560px;
+        height: 75vh;
     }
 
     .latest-news .container {
@@ -536,12 +535,24 @@ footer li {
     }
 
     .latest-news article {
-        padding: 12px;
+        gap: 24px;
     }
 
-    .latest-funding .header {
-        display: flex;
+    .latest-funding header {
+        flex-direction: row;
         justify-content: space-between;
+    }
+
+    .latest-funding .header :nth-child(1) {
+        order: 3;
+    }
+
+    .latest-funding .header :nth-child(2) {
+        order: 2;
+    }
+
+    .latest-funding .header :nth-child(3) {
+        order: 1;
     }
 
     .latest-funding article {
@@ -557,6 +568,18 @@ footer li {
     }
 
     .deals {
-        grid-template-columns: repeat(4, 1frs);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .company {
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .old-price {
+        font-size: 14px;
     }
 }
